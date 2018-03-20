@@ -1,0 +1,35 @@
+{
+  "name": "simplex-flowers",
+  "version": "1.0.0",
+  "description": "Flowers From Simplex Noise",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benfred/simplex-flowers.git"
+  },
+  "author": "Ben Frederickson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benfred/simplex-flowers/issues"
+  },
+  "homepage": "https://github.com/benfred/simplex-flowers#readme",
+  "dependencies": {
+    "open-simplex-noise": "^1.4.1",
+    "slideyslider": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.5.0",
+    "tsify": "^3.0.4",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2",
+    "uglify": "^0.1.5",
+    "uglifyify": "^4.0.5",
+    "watchify": "^3.9.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "bundle": "browserify src/index.ts -p tsify -s simplex_flowers  | uglifyjs -m -c warnings=false > bundle.js",
+    "watch": "watchify src/index.ts -p tsify -s simplex_flowers  --debug -o bundle.js -v"
+  }
+}
